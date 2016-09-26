@@ -4,9 +4,18 @@
 */
 export class User {
     name: string;
+    password: string;
     age: number;
     weight: number;
     height: number;
+
+    constructor(name:string, age:number, password:string, height:number, weight:number) {
+        this.name = name;
+        this.age = age;
+        this.password = password;
+        this.height = height;
+        this.weight = weight;
+    }
 
     isOld():boolean {
         return (this.age >= 100);
