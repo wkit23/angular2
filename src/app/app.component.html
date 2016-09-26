@@ -2,22 +2,23 @@
 <div class="container">
   <app-user-editor></app-user-editor>
   <section *ngIf="!isEditMode" class=user-selector>
-    <ul>
-      <li *ngFor="let item of users; let i = index" (click)="selectedUser=item">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let item of users; let i = index" (click)="selectedUser=item">
         {{item.name}} <span class="age">{{item.age}}</span> <button class="btn btn-danger" (click)="onDeleteUser(i)">x</button>
          <span [class.bmi]="item.isHealthy()" [class.bmi-bad]="!item.isHealthy()">{{item.getBMI()}}</span>
       </li>
     </ul>
 
+    <div>Total age: {{ users | sumpipe }}</div>
     <button (click)="onAddUser()">Add</button>
     <button (click)="onDeleteUser(0)">Delete</button>
 
     <h1>{{title}}</h1>
     <div>
       <b>Name:</b>{{selectedUser.name}}<br/>
-      <b>Age:</b>{{selectedUser.age}}<br/>
-      <b>Height:</b>{{selectedUser.height}}<br/>
-      <b>Weight:</b>{{selectedUser.weight}}<br/>
+      <b>Age:</b>{{selectedUser.age | currency:'MYR'}}<br/>
+      <b>Height:</b>{{selectedUser.height | superpipe:' tall'}}<br/>
+      <b>Weight:</b>{{selectedUser.weight | superpipe}}<br/>
       <span *ngIf="selectedUser.isHealthy()">Healthy!</span>
       <span *ngIf="!(selectedUser.isHealthy())">Not Healthy!</span>
     </div>

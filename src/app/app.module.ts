@@ -5,11 +5,15 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { UserEditorComponent } from './user-editor/user-editor.component';
+import { SuperpipePipe } from './superpipe.pipe';
+import { SumpipePipe } from './sumpipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserEditorComponent
+    UserEditorComponent,
+    SuperpipePipe,
+    SumpipePipe
   ],
   imports: [
     BrowserModule,
