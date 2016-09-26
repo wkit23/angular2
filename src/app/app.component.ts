@@ -14,6 +14,8 @@ export class AppComponent {
     this.user = new User();
     this.user.name = "BAKA";
     this.user.age = 3;
+    this.user.weight = 65;
+    this.user.height = 1.8;
   }
 
   onCheckAge() {
@@ -23,5 +25,9 @@ export class AppComponent {
     else {
       alert("You're too young");
     }
+  }
+
+  onCheckBMI() {
+    alert("Your BMI: " + this.user.getBMI());
   }
 }
